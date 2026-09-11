@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Akron Research Company
+    </title>
+</head>
+<style>
+html {
+    overflow-y: scroll;
+}
+
+.site-title {
+    text-align: left;
+}
+
+.header-info {
+    text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container {
+    display: flex;         /* Enables flexbox layout */
+  align-items: flex-start;   /* Aligns text and image vertically in the middle */
+  justify-content: space-between; /* Pushes text to the left and image to the right */
+  gap: 40px; 
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    text-align: left;
+}
+
+.right-image {
+    max-width: 40%;
+    height: auto;
+}
+</style>
+<body>
+    <div>
+
+        <div>
+            <a href="./../index.html" style="color: inherit; text-decoration: none;">
+                <h1 class="header-info">Akron Research Company</h1>
+            </a>
+            <p class="header-info">Bennett Miller (C) 2026</p>
+            <p class="header-info">
+                <q>What I cannot create, I do not understand</q> 
+                - Richard Feynman
+            </p>
+        </div>
+        
+        <hr/>
+    </div>
+
+    <h2>The 2-to-1 Multiplexer / Multiplexor / MUX</h2>
+    <div class="container">
+        <div class="text-content">
+            
+            <p>
+                The 2-to-1 MUX / Multiplexer / Multiplexor is a device that allows either input A or B to be driven as its output
+                based on the value of the signal pin provided. It is the basis for more complex devices such as 4-to-1 (or 8-to-1!) MUXes to 
+                enhancing full adder circuitry. 
+            </p>
+            <p>
+                The general characteristic equation for a 2:1 (or 2-to-1) MUX is <b>O = S'A + SB</b>,
+                assuming that <b>A, B, S, and O</b> are all one bit inputs and outputs.
+            </p>
+            <p>
+                However, the current Verilog code utilizes the <b>wires</b> to channel output, so the functional logic
+                that this MUX implementation becomes a little more complex and abstract. Although it may be more simpler
+                from a logic standpoint to use case statements or if-else statements, Verilog directly treats ternary operators
+                like the assign statement to be modeled more accurately in hardware and try and give as accurate output as possible.
+            </p>
+
+            <p>
+                The above case is in particular mentioning certain cases where the select signal may be high-impedance <b>Z</b> or 
+                unknown <b>X</b>. Otherwise, the system behaves functionally equivalent to a 2:1 MUX since we implicitly describe
+                a 1 bit output within the output port declaration and equivalently the same for the inputs as well.
+            </p>
+
+            <div>
+                <figure>
+                    <figcaption><b>Verilog Code:</b></figcaption>
+                    <pre><code>
+module twoToOneMUX(a, b, s, o);
+    // Input and output ports
+    // 
+    // Since MUXes are combinational logic components,
+    // we don't need to change output to output reg
+    input a, b, s;
+    output o;
+
+    // output o is assigned b when s = 1'b1 or any value other than 0 -> (0 in decimal radix)
+    //    "   " "     "     a   "  " " 1'b0 
+    assign o = (s) ? b : a;
+
+endmodule
+                    </code></pre>
+                </figure>
+            </div>
+        </div>
+        
+        <img class="right-image" src="./../images/two_to_one_mux.png"/>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Akron Research Company
+    </title>
+</head>
+<style>
+html {
+    overflow-y: scroll;
+}
+
+.site-title {
+    text-align: left;
+}
+
+.header-info {
+    text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container {
+    display: flex;         /* Enables flexbox layout */
+  align-items: flex-start;   /* Aligns text and image vertically in the middle */
+  justify-content: space-between; /* Pushes text to the left and image to the right */
+  gap: 40px; 
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    text-align: left;
+}
+
+.right-image {
+    max-width: 40%;
+    height: auto;
+}
+</style>
+<body>
+    <div>
+
+        <div>
+            <a href="./../index.html" style="color: inherit; text-decoration: none;">
+                <h1 class="header-info">Akron Research Company</h1>
+            </a>
+            <p class="header-info">Bennett Miller (C) 2026</p>
+            <p class="header-info">
+                <q>What I cannot create, I do not understand</q> 
+                - Richard Feynman
+            </p>
+        </div>
+        
+        <hr/>
+    </div>
+
+    <h2>The D Flip Flop</h2>
+    <div class="container">
+        <div class="text-content">
+            <p><b>NOTE: I AM ONLY REFERRING TO FLIP FLOPS AND NOT NECESSARILY LATCHES IN THIS PASSAGE</b></p>
+            <p>
+                The D Flip Flop is a edge-triggered synchronous device that allows the user to define functionality based on
+                clock edges to forward an input. It is a common and beginner friendly construct, and everything from Clock Trees
+                to Fully Registered combinational circuits, it is an element that needs no better introduction.
+            </p>
+            <p>
+                This flip flop provided has an <b>active low</b> reset pin, meaning that when the pin drives a 0 logic state, or
+                equivalently ground, the internal logic resets the output to be some <q>0</q> state. This can be configured based
+                on the parameter passed to it. The reset pin is also <b>asynchronous</b>, meaning that the pin itself does not wait 
+                for some timing element to be complete for it to reset.
+            </p>
+            <p>
+                There are more flip flops possible than just the D flip flop, JK flip flops are rather common as well. However in most
+                of my modern academia and in other projects as well I find the D flip flop being a component that is used more commonly
+                than other latches or flip flops. 
+            </p>
+
+            <p>
+                The characteristic equation for a DFF is as follows: <b>Q* = D</b>
+            </p>
+
+            <p>&#9;<b>Q*</b> := The next state of the output Q</p>
+            <p>&#9;<b>D</b> := The current input</p>
+
+            <div>
+                <figure>
+                    <figcaption><b>Verilog Code:</b></figcaption>
+                    <pre><code>
+module dff(clk, d, q);
+    // input and output ports
+    //
+    // output reg instead of simple output b/c 
+    // we plan to channel output within an always block
+    // to model dff functionality accurately.
+    input clk, d;
+    output reg q;
+
+    // sensitivity list 
+    always @(posedge clk) begin
+        // non-blocking operator within begin-end block
+        //    which does not affect latency or delays
+        //    if other outputs were all channeled using NBA
+        //    (NBA = Non-Blocking Assignment)
+        //
+        // does not create race conditions b/c only one 
+        //    always block to compute
+        q <= d;
+    end
+
+endmodule
+                    </code></pre>
+                </figure>
+            </div>
+            
+        </div>
+        
+        <img class="right-image" src="./../images/dff_simple.png"/>
+        
+    </div>
+</body>
+</html>
