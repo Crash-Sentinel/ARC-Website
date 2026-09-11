@@ -1,4 +1,10 @@
 {
     "version": "v1.0.0",
-    "lastCommit": "2026-09-11"
+    "lastCommit": "2026-09-11",
+    "dffVersion": "v1.0",
+    "twoToOneMUXVersion": "v1.0",
+    "equalityCheckerVersion": "v1.0",
+    "priorityEncoderVersion": "v1.0",
+    "oneToTwoDEMUXVersion": "v1.0",
+    "distributedRAMVersion": "v1.0"
 }

@@ -19,7 +19,12 @@
     
     <div class="main-body">
 
-        <noscript><b>THIS SHOWS WHEN YOUR BROWSER DOES NOT SUPPORT JAVASCRIPT, WHICH WILL HURT VALIDATING THE WEBSITE VERSION AND LAST COMMIT</b></noscript>
+        <noscript>
+            <div>
+                <b>THIS SHOWS WHEN YOUR BROWSER DOES NOT SUPPORT JAVASCRIPT, WHICH WILL HURT VALIDATING THE WEBSITE VERSION AND LAST COMMIT</b>
+                <b>THIS CAN ALSO AFFECT VALIDATING PACKAGE VERSIONS, PLEASE LOOK AT THE GITHUB OR CODEBERG FOR MOST UP TO DATE VERSIONS</b>
+            </div>
+        </noscript>
 
         <p>
             <b>
@@ -39,6 +44,28 @@
             If you have a dream, go for it! And don't stop until you get it! I believe in you!
         </p>
 
+        <p>
+            Continued in dedication to my pet rabbit <q>Poppy</q> who has returned to her creator. Enjoy all the bananas and blueberries you can eat Little Whiskers! (2016-2026)
+        </p>
+
+        <!-- I don't know why this doesn't work in a style sheet but it just works without it -->
+        <div style="text-align: center;">
+            <a 
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/Akron-Research-Company" 
+                style="margin-right: 250px;" 
+            >Github</a>
+            
+            <a 
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://codeberg.org/Akron-Research-Company"
+            >Codeberg</a>
+        </div>
+        
+        
+
         <br />
 
         <table>
@@ -48,12 +75,14 @@
                 <th>Version</th>
                 <th>Download</th>
             </tr>
+
+            <!-- DFF Section -->
             <tr>
                 <td>
                     <a href="./sites/dff.html">DFF</a>
                 </td>
                 <td>
-                    0.1
+                    <span id="dff-version"></span>
                 </td>
                 <td>
                     <div>
@@ -70,12 +99,14 @@
                     
                 </td>
             </tr>
+            
+            <!-- 2:1 MUX Section -->
             <tr>
                 <td>
                     <a href="./sites/2-1-mux.html">2-to-1 MUX</a>
                 </td>
                 <td>
-                    0.1
+                    <span id="2-to-1-mux-version"></span>
                 </td>
                 <td>
                     <div>
@@ -91,10 +122,75 @@
                     </div>
                 </td>
             </tr>
+
+                        <!-- DeMUX Section -->
+             <tr>
+                <td>
+                    <a href="./sites/1-2-demux.html">1-to-2 DEMUX</a>
+                </td>
+
+                <td>
+                    <span id="one-to-two-demux-version"></span>
+                </td>
+
+                <td>
+                    <a href="">
+                        <p>Download not available just yet!</p>
+                    </a>
+                </td>
+            </tr>
+            
+            <!-- Equality Checker Section -->
+            <tr>
+                <td>
+                    <a href="./sites/equality-checker.html">Equality Checker</a>
+                </td>
+
+                <td>
+                    <span id="equality-checker-version"></span>
+                </td>
+
+                <td>
+                    <a href="">
+                        <p>Downloads not available just yet!</p>
+                    </a>
+                </td>
+            </tr>
+
+            <!-- Priority Encoder Section -->
+            <tr>
+                <td>
+                    <a href="./sites/priority-encoder.html">Priority Encoder</a>
+                </td>
+
+                <td>
+                    <span id="priority-encoder-version"></span>
+                </td>
+
+                <td>
+                    <a href="">
+                        <p>Download not available just yet!</p>
+                    </a>
+                </td>
+            </tr>
+
+            <!-- Distributed RAM Section -->
+             <tr>
+                <td>
+                    <a href="./sites/distributedRAM.html">Distributed RAM</a>
+                </td>
+
+                <td>
+                    <span id="distributed-ram-version"></span>
+                </td>
+
+                <td>
+                    <a href="">
+                        <p>Download not available just yet!</p>
+                    </a>
+                </td>
+            </tr>
         </table>
-        
-
-
     </div>
     
 </body>
