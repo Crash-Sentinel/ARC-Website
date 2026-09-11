@@ -1,0 +1,47 @@
+html {
+    overflow-y: scroll;
+}
+
+.site-title {
+    text-align: left;
+}
+
+.header-info {
+    text-align: center;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;   
+  justify-content: space-between; 
+  gap: 40px; 
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    text-align: left;
+}
+
+.right-image {
+    max-width: 40%;
+    height: auto;
+}
