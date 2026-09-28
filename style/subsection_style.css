@@ -45,3 +45,7 @@ tr:nth-child(even) {
     max-width: 40%;
     height: auto;
 }
+
+.tetris-style {
+  text-align: center;
+}
