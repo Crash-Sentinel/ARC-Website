@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>
+        Akron Research Company
+    </title>
+    <link rel="stylesheet" href="../style/subsection_style.css"/>
+    <link rel="icon" type="image/x-icon" href="./../images/Akron_Research_Icon.png"/>
+</head>
+<body>
+    <a href="./../index.html" style="color: inherit; text-decoration: none;">
+        <div>
+            <h1 class="header-info">Akron Research Company</h1>
+
+            <p class="header-info">Bennett Miller (C) 2026</p>
+            <p class="header-info">
+                <q>What I cannot create, I do not understand</q> 
+                - Richard Feynman
+            </p>
+
+            <hr />
+        </div>
+    </a>
+
+    <h2>Header</h2>
+
+    <div class="container">
+        <div class="text-content">
+            <p>
+                The 2 to 4 Decoder is a combinational digital circuit element that will drive an single bit in the output
+                vector y to turn on based on the combination of whether the input a or b are turned on or not. A pretty iconic use of a decoder is
+                for memory addressing decoding, where a certain word line is selected in a SRAM component.
+            </p>
+            <p>
+                Decoders themselves convert a binary code into a set of output signals, and they also do the inverse of digital encoding. 
+                Given any N input lines, there will be 2^(N) output lines for any given decoder.
+            </p>
+            <p>
+                Each bit of the output can be represented by a corresponding boolean expression: 
+            </p>
+            <p>
+                <b>y[0] = a' * b'</b> where multiplication (or asterisks) represent the AND operation and apostrophes show the complement of that value
+                
+            </p>
+            <p><b>y[1] = a' * b</b></p>
+            <p><b>y[2] = a * b'</b></p>
+            <p><b>y[3] = a * b</b></p>
+            <p>
+                <b>
+                    NOTE: This version I forgot to add a "default" value in case either inputs are X or Z, so be on the 
+                    lookout for that on the github and I will update here as soon as I can.
+                </b>
+            </p>
+
+            <div>
+                <figure>
+                    <figcaption><b>System Verilog Code:</b></figcaption>
+                    <pre><code>
+module twoToFourDecoder (
+    // could technically make this an array of one bit values too.
+    input logic a, b,
+    output logic [3:0] y
+);
+
+    // now technically there is a better way to do this
+    // but from a learners standpoint this is alright
+    // and likely will be efficiently compiled w/o the person
+    // worrying about other kinds of efficiencies.
+    always_comb
+    begin
+        if (a == 1'b0 && b == 1'b0) y = 4'b0001;
+        if (a == 1'b0 && b == 1'b1) y = 4'b0010;
+        if (a == 1'b1 && b == 1'b0) y = 4'b0100;
+        if (a == 1'b1 && b == 1'b1) y = 4'b1000;
+    end
+
+endmodule
+                    </code></pre>
+                </figure>
+            </div>
+        </div>
+
+        <img class="right-image" src="../images/two_to_four_decoder.png" alt="Netlist Image"/>
+    </div>
+</body>
+</html>

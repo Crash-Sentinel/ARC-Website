@@ -1,10 +1,7 @@
 {
-    "version": "v1.0.1",
-    "lastCommit": "2026-09-11",
-    "dffVersion": "v1.0",
-    "twoToOneMUXVersion": "v1.0",
-    "equalityCheckerVersion": "v1.0",
-    "priorityEncoderVersion": "v1.0",
-    "oneToTwoDEMUXVersion": "v1.0",
-    "distributedRAMVersion": "v1.0"
+    "version": "v1.0.2",
+    "lastCommit": "2026-09-28",
+    "twoFourDecoderVersion": "v1.0.1",
+    "twoOneMuxVersion": "v1.0.1",
+    "dffVersion": "v1.0.1"
 }

@@ -35,33 +35,29 @@
                 assuming that <b>A, B, S, and O</b> are all one bit inputs and outputs.
             </p>
             <p>
-                However, the current Verilog code utilizes the <b>wires</b> to channel output, so the functional logic
-                that this MUX implementation becomes a little more complex and abstract. Although it may be more simpler
-                from a logic standpoint to use case statements or if-else statements, Verilog directly treats ternary operators
-                like the assign statement to be modeled more accurately in hardware and try and give as accurate output as possible.
-            </p>
-
-            <p>
-                The above case is in particular mentioning certain cases where the select signal may be high-impedance <b>Z</b> or 
-                unknown <b>X</b>. Otherwise, the system behaves functionally equivalent to a 2:1 MUX since we implicitly describe
-                a 1 bit output within the output port declaration and equivalently the same for the inputs as well.
+                This two to one multiplexer itself will show a value of 0 instead of the any one of the inputs to avoid possible errors that
+                may happen when wiring this mux in a more complex circuit, however it may cause confusion if one of your inputs is 0 itself, so
+                be sure to take caution when using this MUX in your circuit to account for that potential failure state.
             </p>
 
             <div>
                 <figure>
-                    <figcaption><b>Verilog Code:</b></figcaption>
+                    <figcaption><b>System Verilog Code:</b></figcaption>
                     <pre><code>
-module twoToOneMUX(a, b, s, o);
-    // Input and output ports
-    // 
-    // Since MUXes are combinational logic components,
-    // we don't need to change output to output reg
-    input a, b, s;
-    output o;
+module twoToOne_mux(
+    input logic a, b, sel,
+    output logic y
+);
 
-    // output o is assigned b when s = 1'b1 or any value other than 0 -> (0 in decimal radix)
-    //    "   " "     "     a   "  " " 1'b0 
-    assign o = (s) ? b : a;
+    always_comb
+    begin
+        case (sel)
+            0: y = a;
+            1: y = b;
+            // always good practice to include a default when using case statements
+            default: y = 0;
+        endcase
+    end
 
 endmodule
                     </code></pre>

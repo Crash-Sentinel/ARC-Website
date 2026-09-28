@@ -52,19 +52,16 @@
 
             <div>
                 <figure>
-                    <figcaption><b>Verilog Code:</b></figcaption>
+                    <figcaption><b>System Verilog Code:</b></figcaption>
                     <pre><code>
-module dff(clk, d, q);
+module dff_simple(
     // input and output ports
-    //
-    // output reg instead of simple output b/c 
-    // we plan to channel output within an always block
-    // to model dff functionality accurately.
-    input clk, d;
-    output reg q;
-
+    input logic d,
+    input logic clk,
+    output logic q
+);
     // sensitivity list 
-    always @(posedge clk) begin
+    always_ff @(posedge clk) begin
         // non-blocking operator within begin-end block
         //    which does not affect latency or delays
         //    if other outputs were all channeled using NBA
