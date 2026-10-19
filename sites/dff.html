@@ -32,10 +32,10 @@
                 to Fully Registered combinational circuits, it is an element that needs no better introduction.
             </p>
             <p>
-                This flip flop provided has an <b>active low</b> reset pin, meaning that when the pin drives a 0 logic state, or
-                equivalently ground, the internal logic resets the output to be some <q>0</q> state. This can be configured based
-                on the parameter passed to it. The reset pin is also <b>asynchronous</b>, meaning that the pin itself does not wait 
-                for some timing element to be complete for it to reset.
+                Some flip flops have an <b>active low</b> reset pin, meaning that when the pin drives a 0 logic state, or
+                equivalently ground, the internal logic resets the output to be some <q>0</q> state. These can be configured based
+                on the parameter passed to it. Reset pins in this manner are typically <b>asynchronous</b>, meaning that the pin itself 
+                does not wait for a timing element to be complete for it to reset.
             </p>
             <p>
                 There are more flip flops possible than just the D flip flop, JK flip flops are rather common as well. However in most
@@ -49,6 +49,16 @@
 
             <p>&#9;<b>Q*</b> := The next state of the output Q</p>
             <p>&#9;<b>D</b> := The current input</p>
+
+            <p>
+                The side block diagram form of the DFF is done in Xilinx Vivado using the IP
+                generation tool. Note that I have not included a specific package download in my website
+                to account for this, simply because it is likely that your toolset for your FPGA or other
+                board will have an easier time optimizing and improving the efficiency given simply the 
+                Verilog code rather than a direct IP package. This also allows you to have more freedom in
+                modifying or recreating such designs if you so desire to improve its implementation tailored
+                to your needs.
+            </p>
 
             <div>
                 <figure>

@@ -22,7 +22,7 @@
         </div>
     </a>
 
-    <h2>Header</h2>
+    <h2>2-4 Decoder</h2>
 
     <div class="container">
         <div class="text-content">
@@ -45,6 +45,17 @@
             <p><b>y[1] = a' * b</b></p>
             <p><b>y[2] = a * b'</b></p>
             <p><b>y[3] = a * b</b></p>
+
+            <p>
+                The side block diagram form of the 2-4 Decoder is done in Xilinx Vivado using the IP
+                generation tool. Note that I have not included a specific package download in my website
+                to account for this, simply because it is likely that your toolset for your FPGA or other
+                board will have an easier time optimizing and improving the efficiency given simply the 
+                Verilog code rather than a direct IP package. This also allows you to have more freedom in
+                modifying or recreating such designs if you so desire to improve its implementation tailored
+                to your needs.
+            </p>
+
             <p>
                 <b>
                     NOTE: This version I forgot to add a "default" value in case either inputs are X or Z, so be on the 
@@ -80,7 +91,15 @@ endmodule
             </div>
         </div>
 
-        <img class="right-image" src="../images/two_to_four_decoder.png" alt="Netlist Image"/>
+        
+        <img class="right-image" 
+            src="../images/two_to_four_decoder.png" 
+            alt="Netlist Image"
+            width="100%"
+            height="100%"
+        />
+    
+
     </div>
 </body>
 </html>
